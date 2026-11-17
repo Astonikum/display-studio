@@ -1,0 +1,21 @@
+include(FetchContent)
+# A workspace uses sibling checkouts; a standalone clone fetches tagged sources.
+function(mad_dependency variable repository tag)
+  set(local "${CMAKE_CURRENT_SOURCE_DIR}/../${repository}")
+  if(EXISTS "${local}/library.json")
+    get_filename_component(source "${local}" ABSOLUTE)
+  else()
+    string(TOLOWER "${variable}" content)
+    FetchContent_Declare(${content}
+      GIT_REPOSITORY "https://github.com/Astonikum/${repository}.git"
+      GIT_TAG "${tag}" GIT_SHALLOW TRUE)
+    FetchContent_MakeAvailable(${content})
+    set(source "${${content}_SOURCE_DIR}")
+  endif()
+  set(${variable} "${source}" PARENT_SCOPE)
+endfunction()
+mad_dependency(MAD_CORE display-lib v0.7.0)
+mad_dependency(MAD_ADAPTERS adapter-common-lib v0.2.0)
+mad_dependency(MAD_SSD1306 ssd1306-lib v0.3.1)
+mad_dependency(MAD_ILI9341 ili9341-lib v0.2.1)
+mad_dependency(MAD_EPAPER epaper-lib v0.2.1)

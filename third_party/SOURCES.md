@@ -1,0 +1,2 @@
+- nothings/stb @ 003501f6d7a8668ce8b6d875e34dd97ad0d5d5b5 (headers retain upstream license)
+- memononen/nanosvg @ 239e102ec2c691f2902e20ace2ed36ee4a35cfe6 (headers retain upstream license)
