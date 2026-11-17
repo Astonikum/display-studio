@@ -21,6 +21,9 @@ The `MadDisplay/oled096.hpp` compatibility include now belongs to `ssd1306-lib`.
 | Six runnable adapter examples | Passed: SSD1306/U8g2 on Mega 2560; ILI9341/SSD1327/Arduino_GFX/GxEPD2 on ESP32 |
 | Fresh external PlatformIO consumer, only SSD1306 Git URL in lib_deps | Dependencies resolved automatically; Mega firmware built |
 | Arduino CLI ZIP installation: core + adapter support + SSD1306 | Installed; Mega example compiled |
+| Arduino CLI core declarative sketch | Passed on Mega 2560 |
+| Arduino CLI U8g2 ZIP installation and sketch | Passed on Mega 2560 with U8g2 2.36.19 |
+| GitHub Actions: core and all six adapter repositories | All seven workflows passed |
 
 The standalone Studio check reused a local Dear ImGui source cache; all MadDisplay package dependencies were downloaded from their public repositories. The core package uses Arduino discovery headers (`MadDisplay.h`) in sketches. Other packages expose corresponding top-level `.h` wrappers; namespaced `.hpp` headers remain available after a package is discovered.
 
